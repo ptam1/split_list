@@ -9,7 +9,7 @@ class node
 {
 public: 
 	//Typedef
-	typedef double value_type;
+	typedef int value_type;
 	
 	//Constructor
 	node( 
@@ -26,7 +26,7 @@ public:
 	
 	//Member functions to set the data and link fields
 	void set_data(const value_type &new_data) {data_field = new_data;}
-	void set_link(node *new_link){link_field = new_link;}
+	void set_link(node *new_link) {link_field = new_link;}
 	
 	//Constant member function to retrieve thecurrent data
 	value_type data() const {return data_field;}
@@ -41,7 +41,8 @@ private:
 };
 
 //Functions for the linked list toolkit
-void split_list(const node::value_type &target);
+void split_list(node* head_ptr, const node::value_type &splittingValue);
 void print(node* head_ptr);
-	
+void list_insert(node *previous_ptr, const node::value_type &entry);
+void list_head_insert(node *&head_ptr, const node::value_type &entry);
 #endif
