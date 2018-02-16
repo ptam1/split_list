@@ -17,15 +17,7 @@ int main()
 	print(one);
 	cout << " " << endl;
 	
-	node* firstList;
-	node* secondList;
-
-
-	
 	split_list(one, 5);
-
-//	cout << "The Second Linked List is: " << " " ;
-	//print()
 	
 	return 0;
 }

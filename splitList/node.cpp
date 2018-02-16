@@ -17,15 +17,13 @@ void split_list(node* head_ptr, const node::value_type &splittingValue)
 	node* previous = new node;
 	
 	for(cursor = head_ptr; cursor != NULL; cursor = cursor->link())
-	{
-		
+	{		
 		if(cursor->data() < splittingValue)
 		{
 			if(firstList->data() == NULL)
 			{
 				list_head_insert(firstList, cursor->data());
-			}
-			
+			}			
 			else
 			{
 			previous = firstList;
@@ -43,21 +41,22 @@ void split_list(node* head_ptr, const node::value_type &splittingValue)
 			previous = secondList;
 			list_insert(previous, cursor->data());
 			}
-		}	 	
+		}
+	}	 	
 		
 	    cout << "The First Linked List is: " << " ";
 		for(node* i = firstList; i != NULL; i = i->link())
 	{
 		cout << i->data() << " " << " ";
 	}
-	
-	cout << "The Second Linked List is: " << " ";
-	for(node* i = secondList; i != NULL; i = i->link())
+		cout << " " << endl;
+		cout << "The Second Linked List is: " << " ";
+		for(node* i = secondList; i != NULL; i = i->link())
 	{
 		cout << i->data() << " " << " ";
 	}
 }
-}
+
 
 void print(node* head_ptr)
 {
