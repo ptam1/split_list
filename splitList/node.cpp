@@ -12,35 +12,21 @@ void split_list(node* head_ptr, const node::value_type &splittingValue)
 {
 	const node* cursor;
 
-	node* firstList = new node;;
+	node* firstList = new node;
 	node* secondList = new node;
 	node* previous = new node;
 	
 	for(cursor = head_ptr; cursor != NULL; cursor = cursor->link())
 	{		
 		if(cursor->data() < splittingValue)
-		{
-			if(firstList->data() == NULL)
-			{
-				list_head_insert(firstList, cursor->data());
-			}			
-			else
-			{
+		{		
 			previous = firstList;
-			list_insert(previous, cursor->data());
-			}
-		}
+			list_insert(previous, cursor->data());			
+	    }
 		else
 		{
-			if(secondList->data() == NULL)
-			{
-				list_head_insert(secondList, cursor->data());
-			}
-			else
-			{
 			previous = secondList;
-			list_insert(previous, cursor->data());
-			}
+			list_insert(previous, cursor->data());			
 		}
 	}	 	
 		
