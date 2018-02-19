@@ -41,7 +41,6 @@ private:
 };
 
 //Functions for the linked list toolkit
-void split_list(node* head_ptr, const node::value_type &splittingValue);
 void print(node* head_ptr);
 void list_insert(node *previous_ptr, const node::value_type &entry);
 
