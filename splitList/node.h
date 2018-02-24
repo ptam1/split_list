@@ -9,7 +9,7 @@ class node
 {
 public: 
 	//Typedef
-	typedef int value_type;
+	typedef double value_type;
 	
 	//Constructor
 	node( 
@@ -21,8 +21,6 @@ public:
 		link_field = init_link;
 	}
 	
-	//Destructor
-	~node();
 	
 	//Member functions to set the data and link fields
 	void set_data(const value_type &new_data) {data_field = new_data;}
@@ -43,5 +41,7 @@ private:
 //Functions for the linked list toolkit
 void print(node* head_ptr);
 void list_insert(node *previous_ptr, const node::value_type &entry);
+void list_head_insert(node *&head_ptr, const node::value_type &entry);
+std::size_t list_length(const node *head_ptr);
 
 #endif

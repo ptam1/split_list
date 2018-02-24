@@ -3,61 +3,64 @@
 
 using namespace std;
 
-void split_list(node* head_ptr, const node::value_type &splittingValue);
+void split_list(node* head_ptr, int splittingValue);
+
+
 
 int main()
 {
-	 node* tail = new node(7);
+	node* tail = new node(7);
 	node* six = new node(6, tail);
-	node* five = new node(5, six);
-	node* four = new node(4, five);
-	node* three = new node(3,four);
+	node* five = new node(4, six);
+	node* four = new node(14, five);
+	node* three = new node(9,four);
 	node* two = new node(2, three);
 	node* one = new node(1, two);
 	
+
 	
 	cout << "The Original Linked List is: " << " ";
 	print(one);
 	cout << " " << endl;
-	
 	split_list(one, 5);
-	
+
+
 	return 0;
 }
 
 
 
-void split_list(node* head_ptr, const node::value_type &splittingValue)
+void split_list(node* head_ptr, int splittingValue)
 {
-	const node* cursor;
-
+	node* current;
 	node* firstList = new node;
 	node* secondList = new node;
-	node* previous = new node;
-	
-	for(cursor = head_ptr; cursor != NULL; cursor = cursor->link())
-	{		
-		if(cursor->data() < splittingValue)
-		{		
-			previous = firstList;
-			list_insert(previous, cursor->data());			
-	    }
-		else
+
+for(current = head_ptr; current != NULL; current = current->link())
+	{	
+		if(current->data() < splittingValue)
 		{
-			previous = secondList;
-			list_insert(previous, cursor->data());			
-		}
-	}	 	
-		
-	    cout << "The First Linked List is: " << " ";
-		for(node* i = firstList; i != NULL; i = i->link())
+			list_insert(firstList, current->data());	
+		}	
+        else
+		{		
+			list_insert(secondList, current->data());	
+		}				
+	}
+
+		  cout << "The First Linked List is: " << " ";
+		for(node* i = firstList->link(); i != NULL; i = i->link())
 	{
 		cout << i->data() << " " << " ";
 	}
 		cout << " " << endl;
 		cout << "The Second Linked List is: " << " ";
-		for(node* i = secondList; i != NULL; i = i->link())
+		for(node* a = secondList->link(); a != NULL; a = a->link())
 	{
-		cout << i->data() << " " << " ";
-	}
+		cout << a->data() << " " << " ";
+	}   
 }
+
+
+
+  
